@@ -1,0 +1,205 @@
+  '',,'   ''''.',',' ,,.   !,'..'' '',,   ', '›*        ,..*›'   '*›››        
+  '*A@A.  ,5J,.'!@@J 'J#7  W(' C@@ .*%C  =5, '!#%'    ,%C..,J#=  ',Dc#        
+    *MrJ  J3     crJ  .Mr= 5   3rM   !J Jr3    !rD'  ,Wc'    #rC   @rA        
+     =cM*!=.     Mr7  'cc( *   3rD    !,cr›     WrJ  $r#     7rM.  5r$        
+      Jr@*       Wr(.›$57      3r#     7rr'     #r@  Mr%     ›rr›  Ar3        
+      'Ar$.      Wr›.*3@3*     3r5     Jrr'     #r#  cr$     ›rr›  %r3        
+     '7,Wr7      cr(   CrW*    $r5     =rr*     Wr3  WrA     =rc'  Ar3     '  
+    *%' ›cc(     rr7   *rrC    %r#     'MrC    *rW,  JrW.    Ar3   5r$     C  
+   !@!   $rW*   'rrC   JrD,    5r#      (MD'  .AD›   '5rC   !M3.   #r%    !A  
+ .›$$›.  .5#%›''(A%(.*JAC'    ›%%$(*.    ,3$,.((.     .=A(.*7,   '(%AC.*=JA7  
+          . .''      ''                    .'            '.                   
+==============================================================================
+
+Thanks
+
+-Paul Bartholomew for xbflash and LBA48 support and kernel expansion.
+
+-Superfro for his original BIOS mods.
+
+-k3rn3l and MomDad for ideas, info and other support.
+
+-SantMat for his ultra-smooth no-animation, no-DVD-check, LED color patches,
+and more.
+
+-Team Phoenix for info and other support.
+
+-Pixel8
+
+-Thanks to Iriez for being completely insane!
+
+==============================================================================
+
+Extracts, Compiles, and Patches XBOX BIOS/Kernel Files.
+
+==============================================================================
+
+See XBtoolDoc.html for more info.
+
+==============================================================================
+
+LBA48 Notes (see XBtoolDoc.html)
+
+Please give all credit for the LBA48 stuff to oz_paulb. He's done what many
+said couldn't be done. See the documentation for more details on the LBA48 and
+partition options. Also check http://forums.xbox-scene.com/ for help.
+
+==============================================================================
+
+
+History
+
+1.0.23a
+
+Updated patch files only. Fixes LBA48 reporting wrong version number.
+
+1.0.23
+
+Fixed obscure lba48 bug which doesn't affect users (right now), but has
+implications with regard to partitioning tools.
+
+1.0.22
+
+Updated Kernel ID code so that JbOnE's flubber modded kernel (X2 4981 based)
+will be recognized.
+
+(That's right, another update. JbOnE released his fubber modded BIOS and I
+assume some people may need to edit them. If you don't use JbOnE 4981 then you
+don't need this update. 1.0.22 does not add any editing functions, just
+recognizes the bits changed by JbOnE.)
+
+
+1.0.21
+
+Tooltips!
+
+User interface tuning.
+
+Fixed some minor internal stuff that I can't remember what it was. :)
+
+
+1.0.20
+
+Animation glow set to match X inner glow.
+
+Above change is probably temporary pending a flubber color patch.
+
+
+1.0.20.b2
+
+Fix: bug disabled HD key embed in X2 4981.
+
+
+1.0.20.b1
+
+Embedded HD Key patch for Evox M7 and X2 4981.
+
+
+1.0.19.b2
+
+Embedded eeprom patch for X2 4981 (see info above).
+
+Fix: embedded EEPROM checkbox checked when the BIOS did support that function.
+
+
+1.0.19.b1
+
+Embedded eeprom patch for M7 (see info above).
+
+
+1.0.18.b3 (Beta! Use at your own risk!)
+
+Fix: dash name patch in evox kernels (broken in b2)
+
+
+1.0.18.b2
+
+No reset on eject in dash (X2 4981 reset on eject patch).
+
+Detects reset on eject status of Evox kernels. 
+
+Notes:
+
+Do not mix any files from an older version of XBtool with
+this release.
+
+Reset on eject still affects apps like Xbox Media Player
+(this may or may not get fixed).
+
+Loading files patched with this XBtool version into an older
+version is not advised. If you do so then be sure to check
+your dash names.
+
+
+1.0.18.b1
+
+Reset on eject patch for X2 4981.
+
+Fix: format of kernel version display.
+
+
+1.0.16
+
+Fix: long standing boot flags bug (thanks to heinrich for
+causing me to find this :-) ).
+
+Fix: converting M7 to BFM now works even if the BFM flag is
+not set.
+
+Fix: some display issues related to kernel loading
+failures.
+
+Tweaked some display items.
+
+Added kernel version display.
+
+
+1.0.15
+
+Supports fixed (and unfixed) X2 4981 BIOS.
+
+Fix: DVD check was ticked on 4981 load (this was a display
+error and didn't affect patching).
+
+
+1.0.14
+
+X2 4981 support (dropped X2 4980 support).
+
+Fix: possible crash when using a limited user account.
+
+Fix: temporary file "foo3.img" written to C:\ (feel free to
+delete this file if you have it).
+
+bfm_remainder.img no longer required or used for BFM conversion.
+
+Slightly improved documentation.
+
+Some display text changes.
+
+
+1.0.13b2 (Beta! Use at your own risk!)
+
+Fix: X2 4980 not recognized in released version.
+
+
+1.0.13.b1 (Beta! Use at your own risk!)
+
+X2 4980 support (experimental).
+
+Fix: crash when loading a kernel with fan set to 100%
+
+
+1.0.12
+
+Fix: crash when converting to BFM via save.
+
+Fix: patched x2 4979 no recognized after patching.
+
+Tweaked config handling for better error catching and
+logging (xbflash).
+
+Optional installer.
+
+
+-NghtShd

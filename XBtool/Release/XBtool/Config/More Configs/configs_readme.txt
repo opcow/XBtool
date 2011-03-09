@@ -1,0 +1,1 @@
+You'll need to add RC4 keys in order to use these config files.

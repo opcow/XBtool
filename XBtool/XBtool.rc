@@ -1,0 +1,344 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\XBtool.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\XBtool.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 256, 145
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "About XBtool"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "XBtool",IDC_STATIC_VER,40,16,106,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2003",IDC_STATIC,40,29,62,8
+    DEFPUSHBUTTON   "OK",IDOK,199,7,50,16,WS_GROUP
+    LTEXT           "Many thanks to the following:",IDC_STATIC,40,45,96,8
+    LTEXT           "Blame: NghtShd",IDC_STATIC,40,122,52,8
+    LTEXT           "Paul Bartholomew for xbflash and LBA48 support; Superfro for his BIOS mods; k3rn3l and MomDad for ideas, info and support; SantMat for his ultra-smooth no-animation, no logo, no DVD check, and LED color patches (and much more); Team Phoenix.",
+                    IDC_STATIC,40,57,188,44
+    LTEXT           "Greets to Pixel8.",IDC_STATIC,40,106,54,8
+    LTEXT           "Thanks Iriez for the laughs.",IDC_STATIC,39,98,89,8
+END
+
+IDD_XBtool_DIALOG DIALOGEX 0, 0, 457, 316
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "XBtool"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Copy MD5 to Clipboard",IDC_CLIPB,223,44,84,14
+    PUSHBUTTON      "",IDC_XLIP_COLOR_BUTTON,16,58,50,14
+    PUSHBUTTON      "",IDC_XLIPHL_COLOR_BUTTON,16,86,50,14
+    PUSHBUTTON      "",IDC_XINNER_COLOR_BUTTON,16,116,50,14
+    PUSHBUTTON      "",IDC_XGLOW_COLOR_BUTTON,16,145,50,14
+    PUSHBUTTON      "",IDC_XTEXT_COLOR_BUTTON,16,174,50,14
+    CONTROL         "Animation",IDC_CHECK_ANI,"Button",BS_AUTOCHECKBOX | 
+                    WS_GROUP | WS_TABSTOP,93,93,47,10
+    CONTROL         "X Logo",IDC_CHECK_XLOGO,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,173,93,37,10
+    CONTROL         "Trademark Symbol",IDC_CHECK_TM,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,93,104,75,10
+    CONTROL         "Splash Logo",IDC_CHECK_SPLASHLOGO,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,173,104,54,10
+    CONTROL         " DVD Drive Check",IDC_DVD_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,93,115,71,10
+    CONTROL         "Red",IDC_RADIO_LEDR,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,256,94,29,10
+    CONTROL         "Green",IDC_RADIO_LEDG,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,256,104,35,10
+    CONTROL         "Orange",IDC_RADIO_LEDO,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,256,114,40,10
+    CONTROL         "Off",IDC_RADIO_LEDN,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,256,124,27,10
+    CONTROL         "Cycle",IDC_RADIO_LEDC,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,256,134,33,10
+    CONTROL         "Stage 1",IDC_CHECK_REDC1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,332,95,41,10
+    CONTROL         "Stage 2",IDC_CHECK_REDC2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,332,106,41,10
+    CONTROL         "Stage 3",IDC_CHECK_REDC3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,332,117,41,10
+    CONTROL         "Stage 4",IDC_CHECK_REDC4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,332,128,41,10
+    CONTROL         "Stage 1",IDC_CHECK_GRNC1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,394,95,41,10
+    CONTROL         "Stage 2",IDC_CHECK_GRNC2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,394,106,41,10
+    CONTROL         "Stage 3",IDC_CHECK_GRNC3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,394,117,41,10
+    CONTROL         "Stage 4",IDC_CHECK_GRNC4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,394,128,41,10
+    CONTROL         "",IDC_SPIN_BOOT1,"msctls_updown32",UDS_ALIGNLEFT | 
+                    UDS_ARROWKEYS | UDS_HOTTRACK | WS_TABSTOP,109,182,11,14
+    EDITTEXT        IDC_EDIT_BOOT1,139,183,89,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_SPIN_BOOT2,"msctls_updown32",UDS_ALIGNLEFT | 
+                    UDS_ARROWKEYS | UDS_HOTTRACK | WS_TABSTOP,109,200,11,14
+    EDITTEXT        IDC_EDIT_BOOT2,139,200,89,12,ES_AUTOHSCROLL
+    CONTROL         "",IDC_SPIN_BOOT3,"msctls_updown32",UDS_ALIGNLEFT | 
+                    UDS_ARROWKEYS | UDS_HOTTRACK | WS_TABSTOP,109,216,11,14
+    EDITTEXT        IDC_EDIT_BOOT3,139,217,89,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DEFXBE,139,165,89,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_TYPE,331,48,108,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PRE,257,164,181,30,CBS_DROPDOWNLIST | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Save Preset",IDC_BUTTON_SAVPRE,338,183,48,14
+    PUSHBUTTON      "Delete Preset",IDC_BUTTON_DELPRE,391,183,48,14
+    PUSHBUTTON      "Size...",IDC_BUTTON_SZ,304,260,43,14
+    PUSHBUTTON      "Unpack...",IDC_EXTB,352,260,43,14
+    PUSHBUTTON      "Pack...",IDC_COMPB,400,260,43,14
+    PUSHBUTTON      "Open...",IDC_OPENB,304,281,43,14
+    PUSHBUTTON      "Save As...",IDC_SAVEASB,352,281,43,14,WS_DISABLED
+    CONTROL         "256k",IDC_RADIO_SZ1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,255,259,31,10
+    CONTROL         "512k",IDC_RADIO_SZ2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,255,270,31,10
+    CONTROL         "1024k",IDC_RADIO_SZ4,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,255,281,35,10
+    PUSHBUTTON      "Quit",IDC_QUITB,401,281,43,14
+    LTEXT           "No BIOS loaded",IDC_STATIC_NAME,92,53,125,8
+    GROUPBOX        "Presets",IDC_STATIC,248,151,202,53
+    LTEXT           "X Lip Highlights",IDC_STATIC,16,76,51,8
+    LTEXT           "X Lip",IDC_STATIC,16,48,51,8
+    LTEXT           "X Inner Walls",IDC_STATIC,16,106,43,8
+    LTEXT           "X Inner Glow",IDC_STATIC,16,135,42,8
+    LTEXT           """XBOX"" Text",IDC_STATIC,16,164,51,8
+    GROUPBOX        "Info",IDC_STATIC_INFO,84,35,233,43
+    GROUPBOX        "File Operations",IDC_STATIC,299,248,151,54
+    GROUPBOX        "Logo Colors",IDC_STATIC,7,35,69,169
+    GROUPBOX        "Boot Partitions and Executables",IDC_STATIC_BOOT,83,151,
+                    158,93
+    LTEXT           "BIOS MD5:",IDC_STATIC_BMD5L,92,64,35,8
+    LTEXT           "",IDC_STATIC_BMD5,133,64,142,8
+    GROUPBOX        "File Size",IDC_STATIC_SIZE_BOX,248,248,46,54
+    GROUPBOX        "Toggles",IDC_STATIC,84,81,158,67
+    GROUPBOX        "BIOS Type",IDC_STATIC,324,35,126,43
+    GROUPBOX        "Power LED Color",IDC_STATIC,248,81,69,67
+    GROUPBOX        "Green Stages",IDC_STATIC,390,81,60,67
+    LTEXT           "C:\\",IDC_STATIC_BOOT1,125,184,14,8
+    LTEXT           "C:\\",IDC_STATIC_BOOT2,125,202,14,8
+    LTEXT           "C:\\",IDC_STATIC_BOOT3,125,219,14,8
+    LTEXT           "1st",IDC_STATIC,93,186,11,8
+    LTEXT           "2nd",IDC_STATIC,93,202,13,8
+    LTEXT           "3rd",IDC_STATIC,93,218,12,8
+    GROUPBOX        "Red Stages",IDC_STATIC,324,81,59,67
+    LTEXT           "DVD",IDC_STATIC,119,167,14,8
+    CONTROL         "Convert to BFM",IDC_CHECK_BFM,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,331,64,66,10
+    CONTROL         "BFM Flag",IDC_CHECK_BFM_F,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,173,115,45,10
+    GROUPBOX        "",IDC_STATIC_LBA,7,248,234,54
+    LTEXT           " ",IDC_STATIC_SPACE_LBA,14,248,8,8
+    CONTROL         "LBA48 Support and Default Partition Table Options",
+                    IDC_CHECK_LBA48,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,
+                    247,177,10
+    COMBOBOX        IDC_COMBO_PartitionOpts,15,262,216,30,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Ignore Hard Drive Partition Table",
+                    IDC_CHECK_IgnoreHDTable,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,281,121,10
+    GROUPBOX        "Fan Speed",IDC_STATIC,7,207,69,37
+    EDITTEXT        IDC_EDIT_Speed,15,221,21,12,ES_AUTOHSCROLL
+    LTEXT           "%",IDC_STATIC,38,223,8,8
+    CONTROL         142,IDC_BANNER_HYPERLINK,"Static",SS_BITMAP,7,4,443,27,
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Reset On Eject",IDC_RESET_CHECK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,93,127,64,10
+    CONTROL         "Embed Eeprom",IDC_EEPROM_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,173,127,63,10
+    GROUPBOX        "",IDC_STATIC,248,207,202,37
+    EDITTEXT        IDC_EDIT_HDKEY,258,221,178,14,ES_AUTOHSCROLL
+    LTEXT           " ",IDC_STATIC_SPACE,254,207,8,8,NOT WS_GROUP
+    CONTROL         "Embed HD Key",IDC_KEY_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,256,206,63,10
+    LTEXT           "XBtool Website",IDC_HYPERLINK_HOME,12,305,49,8
+    LTEXT           "Help",IDC_HYPERLINK_HELP,70,305,15,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,23,0
+ PRODUCTVERSION 1,0,23,0
+ FILEFLAGSMASK 0x1fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Wilder Napalm"
+            VALUE "FileDescription", "XBOX BIOS Tool"
+            VALUE "FileVersion", "1, 0, 23, 0"
+            VALUE "InternalName", "XBtool.exe"
+            VALUE "LegalCopyright", "2003 (c) Wilder Napalm.  All rights reserved."
+            VALUE "OriginalFilename", "XBtool.exe"
+            VALUE "ProductName", "XBtool by NghtShd"
+            VALUE "ProductVersion", "1, 0, 23, 0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 11
+        RIGHTMARGIN, 249
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 132
+    END
+
+    IDD_XBtool_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 450
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 306
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RT_MANIFEST
+//
+
+IDR_MANIFEST            RT_MANIFEST             "res\\XBtool.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP4             BITMAP                  "res\\xbtool.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About XBtool..."
+    IDS_AUTONAME            "Automatically Name Packed ROM File"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\XBtool.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

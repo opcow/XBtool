@@ -1,0 +1,49 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XBtool", "XBtool.vcproj", "{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F} = {4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F} = {D42FABE3-3A29-4F1C-ABE9-A5986100446F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XBpatch", "..\XBpatch\XBpatch.vcproj", "{D42FABE3-3A29-4F1C-ABE9-A5986100446F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xbflashlib", "..\xbflashlib\xbflashlib.vcproj", "{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Win32 = All|Win32
+		Debug|Win32 = Debug|Win32
+		Release_static|Win32 = Release_static|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.All|Win32.ActiveCfg = All|Win32
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.All|Win32.Build.0 = All|Win32
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.Debug|Win32.Build.0 = Debug|Win32
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.Release_static|Win32.ActiveCfg = Release_static|Win32
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.Release_static|Win32.Build.0 = Release_static|Win32
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.Release|Win32.ActiveCfg = Release|Win32
+		{3DFB74DB-FF30-4466-834E-B1E6A30C4AF7}.Release|Win32.Build.0 = Release|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.All|Win32.ActiveCfg = All|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.All|Win32.Build.0 = All|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.Debug|Win32.Build.0 = Debug|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.Release_static|Win32.ActiveCfg = Release|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.Release_static|Win32.Build.0 = Release|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.Release|Win32.ActiveCfg = Release|Win32
+		{D42FABE3-3A29-4F1C-ABE9-A5986100446F}.Release|Win32.Build.0 = Release|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.All|Win32.ActiveCfg = All|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.All|Win32.Build.0 = All|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.Debug|Win32.Build.0 = Debug|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.Release_static|Win32.ActiveCfg = Release|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.Release_static|Win32.Build.0 = Release|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.Release|Win32.ActiveCfg = Release|Win32
+		{4D15E0B7-9F14-409F-A22B-ECFE1EBBDA1F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

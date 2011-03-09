@@ -1,0 +1,563 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>XBtool Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#EAEAEA" text="#000000">
+
+<div align="left">
+  <hr noshade>
+  <table width="100%" border="0" cellspacing="0" cellpadding="4">
+    <tr>
+      <td bgcolor="#99FF00"><strong><font size="6">XBtool - XBOX BIOS Mangler</font></strong></td>
+    </tr>
+  </table>
+<strong></strong></div>
+<hr noshade>
+<div align="left">
+  <p align="center"><strong><font color="#FF0000" size="5">  !!!!!!!!!!!!!!!!!!!!
+  WARNING !!!!!!!!!!!!!!!!!!!!</font></strong></p>
+</div>
+<blockquote>
+  <div align="left">XBtool is under ongoing developement. Bugs can and will happen.
+      If you plan to use XBtool to modifiy a BIOS then be fully aware that <strong><u><a href="http://home.alltel.net/nghtshd/you.html">you</a></u></strong> are
+      responsible for what happens. It is entirely possible that a bug in some
+      patch code, a bug in your flashing software, a power outage, a random gamma
+      ray,
+      or the detonation of an electromagnetic pulse weapon could render your Xbox
+      dead. If you have no way to recover from a bad flash then seriously consider
+      whether the risk is acceptable to you.</div>
+  <div align="left">
+    <p>Use this software at your own risk!</p>
+  </div>
+</blockquote>
+<div align="left">
+  <p align="center">    <strong><font color="#FF0000" size="5">!!!!!!!!!!!!!!!!!!!! WARNING
+    !!!!!!!!!!!!!!!!!!!!</font></strong></p>
+  <p align="center"><font color="#FF0000" size="+2">***** LBA48 Warning *****</font></p>
+</div>
+<blockquote>
+  <div align="left">For those moving from a non-LBA48 BIOS, if your drive is
+    greater than 137GB and you already have a partition 6 which goes up to the
+    137GB barrier then
+      choosing the partitioning option &quot;Partition 6 Takes Rest of the Drive&quot; will
+      result in data corruption when the drive is written to. You'll need to
+      reformat the drive if you want to resize your partition 6 to use all available
+      space.</div>
+</blockquote>
+<div align="left">
+  <p align="center"><font color="#FF0000" size="+2">**********</font></p>
+  <p align="center"><strong>Editing support for:    X2 4981, 
+  X2 4979, X2 4978.03, X2
+  4977, X2
+  4976.02, Evox M7, EvoX D.6</strong></p>
+</div>
+<a name="contents"></a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>Contents </strong></font></td>
+  </tr>
+</table>
+<hr noshade>
+<font size="+1"></font>
+<blockquote>
+  <p><strong><a href="#about">About XBtool<br>
+  </a><a href="#lba48">LBA48 and Partition Table Options</a>    <br>
+      <a href="#type">BIOS Type<br> 
+      </a><a href="#dvd">DVD Drive Check Option</a><a href="#fan"><br>
+    Fan Speed Option</a><br>
+    <a href="#boot">Boot Options</a><br>
+    <a href="#pack">Pack / Unpack</a>    <br>
+    <a href="#bfm"> BFM Packer (Convert to BFM)</a><br>
+    <a href="#bfmf"> BFM Flag Option</a><br>
+    <a href="#eeprom">Embed Eeprom</a>    <br>
+    <a href="#key">Embed HD Key<br>
+    </a></strong><strong><a href="#size">File Sizing</a><br>
+    <a href="#config">"Config\More
+      Configs" Folder</a><a href="#notes"><br>
+      Notes </a><br>
+      <a href="#ttd">Things to Do</a><br>
+      <a href="#ttwof">Things to Watch Out For</a><a href="#bug"><br>
+    Bug Reports</a><br>
+    <a href="#thanks">Thanks</a><br>
+    <a href="#history">History</a></strong></p>
+</blockquote>
+<font size="+1"><strong><a name="about"></a></strong></font>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>About XBtool </strong></font></td>
+  </tr>
+</table>
+<hr noshade>
+<font size="+1"></font>
+<blockquote>
+  <p>XBtool Unpacks, Packs, and Patches XBOX BIOS/Kernel Files.</p>
+  <p>You'll need to supply your own RC4 key for encrypted BIOSes. If you are
+    working with a BIOS which works with both the original
+    xbox and the newer revisions then you don't need an RC4 key--use the included &quot;Multi.ini&quot; as-is.</p>
+  <p>Packing and unpacking functions are provided via <strong>Paul Bartholomew's</strong> xbflash.
+    Without xbflash, XBtool would not have been possible.</p>
+</blockquote>
+<a name="lba48"></a>
+<a href="#contents">Contents</a><hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>LBA48 Support and Partition
+          Table Options</strong></font> </td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p align="center"><font color="#FF0000" size="+2">***** LBA48 Warning *****</font></p>
+  <p>For those moving from a non-LBA48 BIOS, if  your drive is
+    greater than 137GB and you already have a partition 6 which goes up to the
+    137GB
+    barrier
+    then
+    choosing
+    the partitioning
+    option &quot;Partition
+    6 Takes Rest of the Drive&quot; will result in data corruption when the drive
+    is written to. You'll need to reformat the drive if you want to resize your
+    partition 6 to use all available space.</p>
+  <p align="center"><font color="#FF0000" size="+2">**********</font></p>
+  <p>LBA48 support was implemented by <strong>Paul Bartholomew</strong> (<strong>oz_paulb</strong>).
+    Enabling this option breaks the 137GB limit on hard drive space.</p>
+  <p><img src="Images/lba48.gif" width="370" height="102"></p>
+  <p>The drop down menu contains 4 options:</p>
+  <ul>
+    <li>Use Standard Partition Table</li>
+    <li>Partition 6 Takes Rest of the Drive</li>
+    <li>Partition 6 Takes up to 137GB / Partition 7 Takes Rest</li>
+    <li>Partition 6 Takes up to 137GB / No Partition 7</li>
+  </ul>
+  <p>These options are only defaults. If a partition table exists on the hard
+    drive, then it will override these options.</p>
+  <p>Setting the Ignore Hard Drive Partition Table option will cause the kernel
+    partition table to override the hard drive table. This option should normally
+    be off. It's only useful if you have a partition table written to the hard
+    drive and there is some reason (patition table corruption, for example) you
+    need that partition table to be ignored.</p>
+</blockquote>
+<font size="+1"><strong><a name="type" id="type"></a></strong></font>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>BIOS Type</strong></font></td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p><img src="Images/Type.gif" width="210" height="85"></p>
+  <p>The BIOS type drop-down menu is where you choose the type of BIOS you plan
+    to be working with. Each item in the menu corresponds to a file in the 'Config'
+    folder. XBtool comes with just one config file installed: 'Multi.ini'. Other
+    useful config files can be found in the 'Configs\More Configs' folder. You
+    will need toopen the config files in 'Configs\More Configs' and add a proper
+    RC4 key in order to use them. No RC4 keys are supplied with XBtool.</p>
+</blockquote>
+<font size="+1"><strong><a name="dvd"></a></strong></font>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>DVD Drive Check Option</strong></font> </td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p><img src="Images/DVDCheck.gif" width="254" height="123"> </p>
+  <p>Unchecking this box will disable the DVD drive check so that the Xbox
+      will boot with no DVD drive installed. This might be useful if your DVD
+    drive is dead.
+      This patch is built-in to later x2 kernels. Disabling the DVD check does
+    not prevent DVDs from booting.</p>
+</blockquote>
+<a name="fan"></a>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">Fan Speed Option</font></strong> </td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p><img src="Images/Fan.gif" width="124" height="63"></p>
+  <p>The minimum selectable speed is 20%--which is the default Xbox fan speed.
+    (The absolute minimum is 0, but XBtool won't set it lower than 20%.) The
+    max
+    speed
+  is 100%. Internally the speed percentage will be rounded down to the nearest
+    even number, so a setting of 25% will result in an actual setting of 24%.</p>
+  <p>I've tested the voltage at the fan header (with the fan connected and running)
+    and got a reading of 6.80 volts at speed 20%. The voltage went up at about
+    0.125 volts per 2% from there, reaching 11.80 at speed 100%. I have read
+    that the Xbox actually uses pulse-width modulation to control fan speed,
+    so these voltages are probably just apparent voltages measured with a slow
+    voltmeter.</p>
+  <p><strong>Use with caution. I don't know if there are any issues with user
+      selected speed settings. Turning it up may help cooling but if the Xbox
+      automatically
+    shifts up the speed when it gets hot (does it?) then that feature could become
+    disabled. Setting it too high could reduce fan life.</strong></p>
+</blockquote>
+<strong><font size="+1"><a name="boot"></a></font></strong>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">Boot Options</font></strong> </td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p><img src="Images/Boot.gif" width="258" height="141"></p>
+  <p>The kernel will try to load the xbe's in top to bottom order. Back-slashes can be used for dashes in subfolders.</p>
+  <p>All supported kernels now have 128 character
+    limits on the dashboard pathnames. There are 3 edit boxes, one for each of
+    the
+        first 3 dashboard pathnames. If none of the first 3 are found then the
+        kernel will
+      attempt to load c:\xboxdash.xbe.</p>
+</blockquote>
+<a name="pack"></a>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">Pack / Unpack</font></strong></td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p><img src="Images/Unpack.gif" width="247" height="104"></p>
+  <p>The unpack function allows you to decrypt, decompress, and split
+    the BIOS into separate kernel, 2bl, and remainder files. The pack function
+    puts it all back together again.Packing and unpacking should work with
+    any BIOS, provided you have the proper
+    config file for the BIOS you are working on.These functions won't
+    be of use to most users--if you don't know why you would need them then you
+    probably don't..</p>
+</blockquote>
+<strong><font size="+1"><a name="bfm"></a></font></strong>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">BFM Packer</font></strong> (Convert
+      to BFM)</td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p><img src="Images/BFMPack.gif" width="210" height="85"></p>
+  <p>If you plan to use this feature, please read the following
+    section in its entirety.</p>
+  <p>Packs kernels so that they can be used with the Phoenix
+    loader. BFM BIOS's are packed in the same way that debug BIOS's are, so use
+    a debug config file. <strong>This
+    option is only for conversion of a non-BFM BIOS. You should leave the
+  'Convert to BFM' box unchecked if the BIOS is already BFM.</strong></p>
+  <p>In order to enable this feature you'll need to place a
+    config file named &quot;bfm.ini&quot; and an image file named &quot;bfm_2bl.img&quot; in
+    the &quot;Config\BFM\&quot; folder.
+    You can get
+    the image file by unpacking a BFM BIOS and renaming its
+    2bl and image. The config file should be a
+    debug config named and should contain an RC4 key--preferably a debug
+    RC4 key.</p>
+  <p>The convert to BFM option is only for packing/saving BIOS files. It
+    has no effect when opening or unpacking. If the BFM packing
+    option is selected then the config file chosen under BIOS
+    Type is ignored (when saving/packing).</p>
+  <p><strong>Step by step:</strong></p>
+  <p>First you'll have to set everything up so that XBtool can do the conversions:</p>
+  <blockquote>
+    <p>Prerequisite: Make sure you have the debug RC4 key and the latest XBtool.</p>
+  </blockquote>
+  <ol>
+    <li>Move or copy
+          the file 'Debug.ini' from the XBtool's 'Config\More Configs\' folder
+    up to the 'Config\' folder.</li>
+    <li>Find the line in 'RC4_KEY=' in 'Debug.ini' and
+          insert the debug RC4 key
+    then save the file.</li>
+    <li>Open 'Config\BFM\bfm.ini', find the line in 'RC4_KEY=' and
+          insert the
+    debug RC4 key then save the file.</li>
+    <li>Launch XBtool, choose BIOS type 'Debug', and
+          unpack some BFM BIOS such
+    as the BFM version of X2 4979.</li>
+    <li>Move or copy the newly unpacked '2bl.img'  file to XBtool's 'Config\BFM\'
+      folder and rename it 'bfm_2bl.img'.</li>
+  </ol>
+</blockquote>
+<blockquote>
+  <p>Now you can convert both supported and unsupported BIOS's to BFM:</p>
+  <p>To convert any BIOS, editable by XBtool or not, just unpack it, check the
+      'Convert to BFM' box, click the 'Pack...' button, select the kernel of the
+      newly unpacked BIOS ('xboxkrnl.img'), then choose where to save the coverted
+    BIOS.</p>
+  <p>If you want to edit a supported BIOS just open it, make your changes, check
+    the 'Convert to BFM' box, and save.</p>
+</blockquote>
+<strong><font size="+1"><strong><a name="bfmf"></a></strong></font></strong>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1"><strong>BFM Flag
+    Option</strong></font></strong></td>
+  </tr>
+</table>
+<hr noshade>
+<strong><font size="+1"></font> </strong>
+<blockquote>
+  <p><img src="Images/BFMFlag.gif" width="254" height="123"></p>
+  <p>This toggles the boot from media flag in the kernel. Checking the box means
+    the saved kernel will not display the Xbox logo screen when booting from
+    media.
+    <strong>Don't set the BFM flag for BIOS files intended for flashing to a
+    modchip or the TSOP</strong>. The BFM flag option is intended for toggling
+    the flag in kernels already packed in a BFM package. (The Convert to BFM
+    function ignores this setting
+    and will instead ask if you'd like to set the flag before packing the BIOS.)</p>
+</blockquote>
+<a name="eeprom"></a>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">Embed Eeprom</font></strong></td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p> <img src="Images/EmbEeeprom.gif" width="254" height="123"></p>
+  <p>    Instead of reading the EEPROM info out of the actual
+    EEPROM it will be read from an EEPOM image stored inside the kernel. This
+    may be useful for recovery purposes. For example, if your eeprom has been
+    corrupted
+    or
+    has bad config data, or for unlocking a hard drive (assuming you have a backup
+    of the EEPROM from the machine the drive was locked with).<br>
+    <br>
+    This  also may be useful to prevent being banned from Live!, but more testing
+    is needed--there's nothing to stop an app from going directly to the EEPROM
+    rather than using the kernel functions (as far as I know). It won't stop
+    you from connecting to Live!, but if your embedded EEPROM info is different
+    from the real EEPROM info then you shouldn't get banned. Again, this assumes
+    Live! doesn't bypass the kernel EEPROM functions. This does not mean you
+    can play on Live! with your modchip active. You can't. This wasn't my main
+    purpose for creating this patch and whether it really prevents your machine
+    from being banned is purely speculative until it's been tested.<br>
+    <br>
+To embed an EEPROM you'll need a backup of your own or one you've picked
+    up somewhere else. Name it &quot;eeprom.bin&quot; and place it in the &quot;Patch
+    Data&quot; folder.<br>
+    <br>
+    You can use eepmod (by Superfro / Dextrose) to modify your EEPROM parameters.
+    The changes should be shown in Avalaunch, Evox or whatever dash you use (assuming
+    it can display info such as serial number, MAC address, online key, etc.).
+    Config Magic reads the actual hardware, so don't be surprised when it doesn't
+    reflect changes you may have made.<br>
+    <br>
+    What happens if you lock your drive while using an embedded EEPROM image
+    depends on the application doing the locking. ConfigMagic will lock the drive
+    using info from the actuall EEPROM. Other applications may use the embedded
+  EEPROM info.</p>
+</blockquote>
+<a name="key"></a>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">Embed HD Key</font></strong></td>
+  </tr>
+</table>
+<hr noshade>
+<blockquote>
+  <p><img src="Images/EmbedKey.gif" width="324" height="76"></p>
+  <p>Embedded HD Key Patch (Evox M7 &amp; X2 4981 BIOS's only in this version)</p>
+  <p>Causes the hard drive key to be read from the kernel rather than calculated
+    using the EEPROM &amp; hard drive info. Only applies to unlocking. If you
+    lock your drive while using this patch, the password will still be generated
+    from the EEPROM and HD info.</p>
+  <p>Could be used to recover a locked hard drive. Could also be useful if you
+    use an embedded EEPROM to help prevent your Xbox from being banned from Live!
+    Using this patch you can embed a fake EEPROM and still keep your HD locked.</p>
+  <p>You can get your HD key by loading ConfigMagic. Use the key shown at the
+    bottom of the ConfigMagic screen, not the &quot;unique HDD key&quot; shown
+    below the DVD drive model. I prefer to use the ConfigMagic backup function,
+    then copy the HD key from the &quot;EEPROMBackup.TXT&quot; backup file. Look
+    for a line such as the one below.</p>
+  <p>XBOX HDD PASSWORD =	D37FE980DC8B94A9110EE4DB64AE68DB0AE8C64C</p>
+  <p>In this case &quot;D37FE980DC8B94A9110EE4DB64AE68DB0AE8C64C&quot; is the
+    HD key you'll use in XBtool.</p>
+</blockquote>
+<strong><font size="+1"><a name="size"></a></font></strong>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">File Sizing </font></strong></td>
+  </tr>
+</table>
+<hr noshade>
+<strong></strong>
+<blockquote>
+  <p><img src="Images/Size.gif" width="247" height="104"></p>
+  <p><strong>You do not need to open a BIOS file to resize it</strong>! When
+    saving a file the resulting BIOS file will be saved to the size selected
+    in the XBtool dialog
+    or to the
+    minimum
+    size for the currently opened BIOS, whichever is larger, but if you just
+    want to resize a BIOS file you can use the <strong>'Size...'</strong> button.
+    When using the size button, BIOS files are not opened--so it works with <em>any</em>    BIOS
+    file--but blindly cut or mirrored to the
+    selected size. No
+    minimum
+    size checking is done when the size button is used, so it is up to you to
+    make sure you don't cut a BIOS to a size smaller than its minimum size. All
+    debugs that I am aware of must not be sized to smaller than 512k. Some BFMs
+    must
+    be 1MB.</p>
+</blockquote>
+<font size="+1"><strong><a name="config"></a></strong></font>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>&quot;Config\More
+    Configs&quot; Folder</strong></font></td>
+  </tr>
+</table>
+<hr noshade>
+<font size="+1"></font>
+<blockquote>
+  <p>This folder contains some useful config files. You will
+    need to enter the proper RC4 key and copy them to the
+    Config folder to use them.</p>
+  <p>The format for the RC4 key line in the config
+      file is like so:<br>
+      <font face="Fixedsys">RC4_key=0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08
+      0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F</font></p>
+</blockquote>
+<font size="+1">  </font>
+  <a name="notes"></a>
+  <a href="#contents">Contents</a><hr noshade>
+  <table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+    <tr>
+      <td bgcolor="#99FF00"><font size="+1"><strong>Notes</strong></font></td>
+    </tr>
+  </table>
+  <hr noshade>
+<blockquote>
+  <p>The color options will be enabled when
+      no kernel is loaded. This is intentional. It allows the making of color
+    presets without having to load a kernel.</p>
+  <p>Persistent options are stored in the Windows registry. Use the CleanRegistry
+    app, which can be found in the Config folder to get rid of XBtool's registry
+    entries.</p>
+</blockquote>
+  <font size="+1"><strong><a name="ttd"></a></strong></font>
+  <a href="#contents">Contents</a><hr noshade>
+  <table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+    <tr>
+      <td bgcolor="#99FF00"><font size="+1"><strong>Things to Do</strong></font> </td>
+    </tr>
+  </table>
+  <hr noshade>
+  <ul>
+    <ul type="disc">
+      <li>Better documentation.</li>
+      <li>Some docs for developers.</li>
+    </ul>
+  </ul>
+<font size="+1"><strong><a name="ttwof"></a></strong></font>
+<a href="#contents">Contents</a><hr noshade>
+  <table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+    <tr>
+      <td bgcolor="#99FF00"><font size="+1"><strong>Things to Watch Out For</strong></font></td>
+    </tr>
+  </table>
+  <hr noshade>
+<font size="+1"></font>
+<ul>
+  <ul type="disc">
+    <li>Never use a new XBtool
+      executable with older DLLs.</li>
+    <li> Check the history section to see that the config
+      file keys XBtool expects haven't been changed if you have your own configs.</li>
+    <li>If
+      something didn't happen the way you expected, check the log file.</li>
+    <li>If you don't like frequent updates, feel
+                      free to ignore XBtool releases and it will be just like
+    no update happened at all.</li>
+  </ul>
+</ul>
+<a name="bug"></a>
+<a href="#contents">Contents</a>
+<hr noshade>
+<font size="+1"> </font>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>Send Bug Reports to: <a href="mailto:xbtool@alltel.net">xbtool@alltel.net</a></strong></font><strong> </strong></td>
+  </tr>
+</table>
+
+<hr noshade>
+<blockquote>
+  <p>I need good feedback if anyone suspects a bug. Bug reports like, &quot;Sometimes
+    xbtool makes bad bioses,&quot; are not helpful. If you suspect XBtool made
+    a bad BIOS, reload that BIOS into XBtool and see if it reads ok. Then note
+    the settings and include them in your report. If possible, try to see if
+    the bug is repeatable. I may ask to see a bad BIOS file, but please don't
+    send
+    any unless I ask.</p>
+</blockquote>
+<a name="thanks"></a>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><font size="+1"><strong>Thank You</strong></font></td>
+  </tr>
+</table>
+<hr noshade>
+<strong>(in no particular order) </strong>
+<ul>
+  <ul type="disc">
+    <li> <strong>Paul Bartholomew</strong> for xbflash and LBA48 support.</li>
+    <li><strong>Superfro</strong> for his BIOS mods.</li>
+    <li> <strong>k3rn3l</strong> and <strong>MomDad</strong> for ideas, info and other support.</li>
+    <li><strong>SantMat</strong> for his ultra-smooth no-animation, no-DVD-check, and LED color
+            patches.</li>
+    <li><strong>Team Phoenix</strong> for info and other support.</li>
+    <li><strong>Pixel8</strong></li>
+    <li><strong>All those who have taken the time to report bugs.</strong></li>
+  </ul>
+</ul>
+<blockquote>
+  <p><strong>XBtool is very much a collaborative effort. Without these people, it would,
+      at best, be much less functional than it is, and, at worst, nonexistent.</strong></p>
+</blockquote>
+<strong><font size="+1"><a name="history"></a></font></strong>
+<a href="#contents">Contents</a>
+<hr noshade>
+<table width="100%" border="0" cellpadding="4" cellspacing="0" bordercolor="#00FF00">
+  <tr>
+    <td bgcolor="#99FF00"><strong><font size="+1">History</font></strong> </td>
+  </tr>
+</table>
+<hr noshade>
+<p>See <a href="http://home.alltel.net/nghtshd/xbtool.html#History">website</a>.</p>
+</body>
+</html>

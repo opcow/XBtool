@@ -1,0 +1,11 @@
+                ***** LBA48 Warning *****
+
+For those moving from a non-LBA48 BIOS, if your drive is
+greater than 137GB and you already have a partition 6
+which goes up to the 137GB barrier then choosing the
+partitioning option "Partition 6 Takes Rest of the Drive"
+will result in data corruption when the drive is written
+to. You'll need to reformat the drive if you want to
+resize your partition 6 to use all available space.
+
+                       **********

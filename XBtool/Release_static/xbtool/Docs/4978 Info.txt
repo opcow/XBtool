@@ -1,0 +1,3 @@
+The 4978.03 patcher doesn't support dash options. Maybe team x-ecuter will release some info on how they pack the XBE inside the kernel.
+
+Only the .03 version of 4978 is supported.
